@@ -1,49 +1,47 @@
-#include "CartesCreature.hpp"
+#include "CartesEnergie.hpp"
 #include "Cartes.hpp"
 
 using namespace std;
 
 
-CartesCreature::CartesCreature(int id, string nom, string description, int lp, int hp) : Cartes(id, nom, description) , m_Lp(lp), m_Hp(hp)
+CartesEnergie::CartesEnergie(int id, string nom, string description, int domaine, int energie) : Cartes(id, nom, description) , m_Domaine(domaine), m_Energie(energie)
 {
-    cout << " -- Life Points : " << lp << endl; 
-    cout << " -- Hit Points : " << hp << endl; 
+    cout << " -- Domaine : " << domaine << endl; 
+    cout << " -- Energie : " << energie << endl; 
 }
 
 
-CartesCreature::~CartesCreature()
+CartesEnergie::~CartesEnergie()
 {
     //dtor
 }
 
-void CartesCreature::display()
+void CartesEnergie::display()
 {
     Cartes::display();    
     cout << "--------- Carte Creature -----------" << endl;
-    cout << " -- Life Points : " << getLp() << endl;
-    cout << " -- Hit Points : " << getHp() << endl;
-    cout << "----------- les attaques possible ----------------" << endl;
-    cout << "--------- TO DO ------------------------------- " <<endl;
+    cout << " -- Domaine : " << getDomaine() << endl;    // on va classifier dans un fichier le Domaine pour avoir le nom de domaine.
+    cout << " -- Energie : " << getEnergie() << endl;
 }
 
-int CartesCreature::getLp()
+int CartesEnergie::getDomaine()
 {
-    return m_Lp;
+    return m_Domaine;
 }
 
-void CartesCreature::setLp(int lp)
+void CartesEnergie::setDomaine(int domaine)
 {
-    m_Lp = lp;
+    m_Domaine = domaine;
 }
 
-int CartesCreature::getHp()
+int CartesEnergie::getEnergie()
 {
-    return m_Hp;
+    return m_Energie;
 }
 
-void CartesCreature::setHp(int hp)
+void CartesEnergie::setEnergie(int energie)
 {
-    m_Hp = hp;
+    m_Energie = energie;
 }
 
 

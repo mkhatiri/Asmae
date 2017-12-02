@@ -21,26 +21,27 @@ int main()
 
     //test Cartes Energie
 
-//    CartesEnergie* carte1 = new CartesEnergie(1, "jdida", "madir walou", 1, 2);
+    CartesEnergie* carte1 = new CartesEnergie(1, "jdida", "madir walou", 1, 2);
 
-//    carte1->setNom("jdida 2");
+    carte1->setNom("jdida 2");
 
-//    cout << carte1->getNom();
+    cout << carte1->getNom();
 
 
-//    carte1->setDescription(" golnalak makadir walou");
+    carte1->setDescription(" golnalak makadir walou");
 
-//    cout << carte1->getDescription() << endl;
+    cout << carte1->getDescription() << endl;
 
-//    carte1->display();
+    carte1->display();
 
 
     //test Cartes Creature
     
-    CartesCreature carte2 = new CartesCreature(2, "jdida 2", "dir ri chiwa", 300, 273);
+    CartesCreature* carte2 = new CartesCreature(2, "jdida 2", "dir ri chiwa", 300, 273);
 
-    carte2->getLd();
+    cout << carte2->getLp() << endl;
 
+    carte2->display();
 
 
     return 0;

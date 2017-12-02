@@ -1,5 +1,5 @@
 #ifndef CARTESENERGIE_HPP
-#define CARTESCREATURE_HPP
+#define CARTESENERGIE_HPP
 
 
 #include <iostream> 
@@ -7,29 +7,29 @@
 
 using namespace std;
 
-class CartesCreature :  public Cartes
+class CartesEnergie :  public Cartes
 {
     public:
-        CartesCreature(int id, string nom, string description, int lp, int hp);
-        virtual ~CartesCreature();
+        CartesEnergie(int id, string nom, string description, int domaine, int energie);
+        virtual ~CartesEnergie();
 
-        int getLp();
-        void setLp(int lp);
-        int getHp();
-        void setHp(int hp);
+        int getDomaine();
+        void setDomaine(int energie);
+        int getEnergie();
+        void setEnergie(int energie);
         
 
         
-        virtual int GetCardType() { return 2; }
+        virtual int GetCardType() { return 1; }
         void display(); 
 
     protected:
     private:
 
-        /* Life Points */
-           int m_Lp;
-        /* Hit Points*/
-           int m_Hp;
+        // Domaine de cette carte 
+           int m_Domaine;
+        // l'énergie de cette carte
+           int m_Energie;
 
 
 
@@ -37,4 +37,4 @@ class CartesCreature :  public Cartes
     
 };
 
-#endif // CARTESCREATURE_HPP
+#endif // CARTESENERGIE_HPP
