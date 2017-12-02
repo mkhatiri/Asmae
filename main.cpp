@@ -8,8 +8,30 @@
 #include "Utils.hpp"
 #include <fstream>
 
+#include <cstring>
+#include<cstdlib>
+#include<vector>
 
 using namespace std;
+
+
+
+
+
+vector<string> split(string str, string sep){
+    char* cstr=const_cast<char*>(str.c_str());
+    char* current;
+    vector<std::string> arr;
+    current=strtok(cstr,sep.c_str());
+    while(current != NULL){
+        arr.push_back(current);
+        current=strtok(NULL, sep.c_str());
+    }
+    return arr;
+}
+
+
+
 
 int main()
 {
@@ -25,7 +47,7 @@ int main()
 
     //test Cartes Energie
 
-//    CartesEnergie* carte1 = new CartesEnergie(1, "jdida", "madir walou", 1, 2);
+    CartesEnergie* carte1 = new CartesEnergie(1, "jdida", "madir walou", 1, 2);
 //
 //
  //  carte1->setNom("jdida 2");
@@ -59,11 +81,19 @@ int main()
 
     Utils utils;
 
-  //  utils.Write_Player("player1.txt", p1);
+    utils.Write_Player("player1.txt", p1);
+
     
     utils.Read_Players("player1.txt");
     
 
+//    utils.Read_Cartes("Cartes.txt");
+
+
 
     return 0;
 }
+
+
+
+

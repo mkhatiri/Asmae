@@ -8,8 +8,9 @@ using namespace std;
 class Cartes
 {
     public:
-        Cartes(int id, string nom, string description);
+        
         Cartes();
+        Cartes(int id, string nom, string description);
         virtual ~Cartes();
         string getNom();
         void setNom(string nom);
@@ -19,7 +20,7 @@ class Cartes
         void setId(int id);
 
 
-        virtual int GetCardType() = 0;
+//        virtual int GetCardType() = 0;
         void display(); 
 
     protected:

@@ -9,7 +9,7 @@
 #include "CartesCreature.hpp"
 #include "CartesSpecial.hpp"
 #include <fstream>
-
+#include<vector>
 
 using namespace std;
 
@@ -22,18 +22,22 @@ class Utils
         virtual ~Utils();
         
         // Player
-        void Read_Players(string fileName);
+        vector <Player>  Read_Players(string fileName);
         void Write_Player(string fileName, Player* player);
         
         
         //Cartes
         
-        void Read_Cartes(string fileName);
-        void Write_Carte(string fileName, Player* player);
+        vector <Cartes> Read_Cartes(string fileName, int type);
+        void Write_Carte(string fileName, Cartes* carte);
         
         
         //
+        
+        Player* lineToPlayer(string line);
+        Cartes* lineToCarte(string line, int type);
 
+        vector<string> split(string str, string sep);
     protected:
     private:
         string m_fileName;
