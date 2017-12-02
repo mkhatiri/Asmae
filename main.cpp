@@ -4,6 +4,7 @@
 #include "Cartes.hpp"
 #include "CartesEnergie.hpp"
 #include "CartesCreature.hpp"
+#include "CartesSpecial.hpp"
 
 using namespace std;
 
@@ -42,6 +43,15 @@ int main()
     cout << carte2->getLp() << endl;
 
     carte2->display();
+
+    //test Cartes Special
+    
+    CartesSpecial* carte3 = new CartesSpecial(3, "jdida 3", "hadi special", false);
+
+    cout << carte3->isRecyclable() << endl;
+
+    carte3->display();
+
 
 
     return 0;
