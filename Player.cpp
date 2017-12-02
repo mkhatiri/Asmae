@@ -7,13 +7,8 @@ Player::Player()
 
 }
 
-Player::Player(string nom, string prenom): nom(nom), prenom(prenom)
+Player::Player(string nom, int point=0): m_Nom(nom), m_Point(point)
 {
-    char a = prenom[0];
-
-    string ID = a + nom;
-    id = ID;
-    point = 0;
 }
 
 Player::~Player()
@@ -24,7 +19,7 @@ Player::~Player()
 void Player::display()
 {
 
-    cout << id << " avec  " << point << " points" << std::endl;
+    cout << m_Nom << " avec  " << m_Point << " points" << std::endl;
 
 }
 
@@ -40,11 +35,40 @@ void Player::init()
 {
 
     cout << "Nom : " ;
-    cin >> this->nom;
-    cout << "Prenom : ";
-    cin >> this->prenom;
-    char pc = this->prenom[0];
-    id = pc + this->nom;
-    point = 0 ;
+    cin >> this->m_Nom ;
+    setPoint(0) ;
 
 }
+
+
+string Player::getNom()
+{
+
+    return m_Nom;
+
+}
+
+
+void Player::setNom(string nom)
+{
+
+    m_Nom = nom ;
+
+}
+
+
+int Player::getPoint()
+{
+
+    return m_Point;
+
+}
+
+void Player::setPoint(int point)
+{
+
+    m_Point = point ;
+
+}
+
+
