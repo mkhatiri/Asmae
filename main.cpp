@@ -43,11 +43,12 @@ int main()
     //session1->addPlayer();
 
     //session1->display();
-    p1->display();
+    session1->load_players();
+   // p1->display();
 
     //test Cartes Energie
 
-    CartesEnergie* carte1 = new CartesEnergie(1, "jdida", "madir walou", 1, 2);
+//    CartesEnergie* carte1 = new CartesEnergie(1, "jdida", "madir walou", 1, 2);
 //
 //
  //  carte1->setNom("jdida 2");
@@ -79,12 +80,12 @@ int main()
 //    carte3->display();
 
 
-    Utils utils;
+  //  Utils utils;
 
-    utils.Write_Player("player1.txt", p1);
+//    utils.Write_Player("player1.txt", p1);
 
     
-    utils.Read_Players("player1.txt");
+//    utils.Read_Players("player1.txt");
     
 
 //    utils.Read_Cartes("Cartes.txt");

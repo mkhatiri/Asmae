@@ -14,8 +14,10 @@ class Save
         Save();
         virtual ~Save();
         int addPlayer();
+        int addPlayer(Player p);
         void display();
         
+        void load_players();
 
     protected:
     private:

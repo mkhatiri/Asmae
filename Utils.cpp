@@ -44,6 +44,10 @@ vector<Player>  Utils::Read_Players(string filename)
         }
         file.close();
     }
+    else{
+            cout << filename << " n'esiste pas " << endl;
+    
+    }
     return players;
 }
 
@@ -78,6 +82,9 @@ vector<Cartes>  Utils::Read_Cartes(string filename, int type)
 
         }
         file.close();
+    }
+    else{
+            cout << filename << " n'esiste pas " << endl;
     }
     return cartes;
 }
