@@ -1,3 +1,4 @@
 1:CE1:description carte Energie 1:95:1:50
 2:CE2:description carte Energie 1:30:3:25
 3:CE3:description carte Energie 1:120:2:150
+4:CE4:description carte Energie 1:35:4:450

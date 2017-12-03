@@ -1,4 +1,4 @@
-asmae:25
-mohammed:50
-khatiri:12
-bouabdalah:17
+Hassan:30
+Med:1050
+MedMEd:30
+AsmaeAbdelaoui:0

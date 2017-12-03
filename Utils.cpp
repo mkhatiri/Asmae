@@ -99,7 +99,10 @@ void Utils::Write_Player(string filename, vector <Player> player)
     file.seekp(0,ios::end);
     if (file.is_open()){
         for(int i=0;i<player.size();i++)
-            file << player[i].getNom() << ":" << player[i].getPoint() << endl ; // ":" << player.getCollectionFile();
+            if(player[i].getNom().compare(""))
+            {
+                file << player[i].getNom() << ":" << player[i].getPoint() << endl ; // ":" << player.getCollectionFile();
+            }
         file.close();
     }
 
@@ -115,11 +118,11 @@ vector<CartesEnergie>  Utils::Read_Cartes(string filename, CartesEnergie CE)
     file.open(filename.c_str());
     if (file.is_open()){
         while ( getline(file, line) ){
-        //    file >> line ; // ":" << player.getCollectionFile();
-    //        cout << line << endl;
+            //    file >> line ; // ":" << player.getCollectionFile();
+            //        cout << line << endl;
             CartesEnergie* c = lineToCarte(line, CE);
             if(c){
-                    cartes.push_back(*c);
+                cartes.push_back(*c);
             }
 
         }
