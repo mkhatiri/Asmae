@@ -10,9 +10,10 @@ using namespace std;
 class CartesSpecial :  public Cartes
 {
     public:
-        CartesSpecial(int id, string nom, string description, bool recyclable, int effet);
+        CartesSpecial(int id, string nom, string description, int prix, bool recyclable, int effet);
         virtual ~CartesSpecial();
 
+        CartesSpecial();
         bool getRecyclable();
         void setRecyclable(bool recyclable);
 

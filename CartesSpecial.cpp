@@ -4,11 +4,16 @@
 using namespace std;
 
 
-CartesSpecial::CartesSpecial(int id, string nom, string description, bool recyclable, int effet) : Cartes(id, nom, description) , m_Recyclable(recyclable), m_effet(effet)
+CartesSpecial::CartesSpecial(int id, string nom, string description, int prix, bool recyclable, int effet) : Cartes(id, nom, description, prix) , m_Recyclable(recyclable), m_effet(effet)
 {
     cout << " -- carte recyclable : " << recyclable << endl; 
 }
 
+
+CartesSpecial::CartesSpecial()
+{
+    //ctor
+}
 
 CartesSpecial::~CartesSpecial()
 {

@@ -33,7 +33,9 @@ class Utils
         vector <CartesSpecial> Read_Cartes(string fileName, CartesSpecial CS);
 
 
-        void Write_Carte(string fileName, Cartes* carte);
+        void Write_Carte(string fileName, CartesCreature* CC);
+        void Write_Carte(string fileName, CartesSpecial* CS);
+        void Write_Carte(string fileName, CartesEnergie* CE);
         
         
         //

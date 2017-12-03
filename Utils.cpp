@@ -130,18 +130,32 @@ vector<CartesSpecial>  Utils::Read_Cartes(string filename, CartesSpecial CS)
     return cartes;
 }
 
-
-void Utils::Write_Carte(string filename, Cartes* carte)
+vector<CartesCreature>  Utils::Read_Cartes(string filename, CartesCreature CC)
 {
-
-    cout << "Write Cartes" << endl;
-    ofstream file;
+    cout << "Read Cartes Creature " << endl;
+    string line;
+    vector <CartesCreature> cartes;
+    ifstream file;
     file.open(filename.c_str());
     if (file.is_open()){
-        file << carte->getNom() << ":" << carte->getDescription() ; // add les 3 if Creature, speacial ....
+        while ( getline(file, line) ){
+        //    file >> line ; // ":" << player.getCollectionFile();
+            cout << line << endl;
+            CartesCreature* c = lineToCarte(line, CC);
+            if(c){
+                    cartes.push_back(*c);
+            }
+
+        }
         file.close();
     }
+    else{
+            cout << filename << " n'esiste pas " << endl;
+    }
+    return cartes;
 }
+
+
 
 
 Player * Utils::lineToPlayer(string line)
@@ -168,9 +182,9 @@ CartesEnergie* Utils::lineToCarte(string line, CartesEnergie CE)
 
     vector<string> v =  split(line, ":");
 
-        if(v.size() == 5){
+        if(v.size() == 6){
 
-            CartesEnergie* carte = new CartesEnergie(atoi(v[0].c_str()), v[1], v[2], atoi(v[3].c_str()),  atoi(v[4].c_str()));
+            CartesEnergie* carte = new CartesEnergie(atoi(v[0].c_str()), v[1], v[2], atoi(v[3].c_str()),  atoi(v[4].c_str()),atoi(v[5].c_str()) );
             return carte ;
 
         }else{
@@ -187,9 +201,9 @@ CartesSpecial* Utils::lineToCarte(string line, CartesSpecial CS)
 
     vector<string> v =  split(line, ":");
 
-        if(v.size() == 5){
+        if(v.size() == 6){
 
-            CartesSpecial* carte = new CartesSpecial(atoi(v[0].c_str()), v[1], v[2], atoi(v[3].c_str()), atoi(v[4].c_str()));
+            CartesSpecial* carte = new CartesSpecial(atoi(v[0].c_str()), v[1], v[2], atoi(v[3].c_str()), atoi(v[4].c_str()), atoi(v[5].c_str()));
             return carte ;
 
         }else{
@@ -198,4 +212,78 @@ CartesSpecial* Utils::lineToCarte(string line, CartesSpecial CS)
             return NULL;
         }
 
+}
+
+
+CartesCreature* Utils::lineToCarte(string line, CartesCreature CC)
+{
+
+    vector<string> v =  split(line, ":");
+
+        if(v.size() == 6){
+
+            CartesCreature* carte = new CartesCreature(atoi(v[0].c_str()), v[1], v[2], atoi(v[3].c_str()), atoi(v[4].c_str()), atoi(v[5].c_str()));
+            return carte ;
+
+        }else{
+            cout << "--------- Problem : les information du joueur sont pas complet : " << line << endl;
+
+            return NULL;
+        }
+
+}
+
+
+
+
+
+void Utils::Write_Carte(string filename, CartesEnergie* carte)
+{
+
+    cout << "Write Cartes" << endl;
+    ofstream file;
+    file.open(filename.c_str());
+    if (file.is_open()){
+        file << carte->getId() << ":";
+        file << carte->getNom() << ":" ;
+        file << carte->getDescription() << ":";
+        file << carte->getPrix() << ":";
+        file << carte->getDomaine() << ":"; 
+        file << carte->getEnergie() << endl;
+        file.close();
+    }
+}
+
+void Utils::Write_Carte(string filename, CartesSpecial* carte)
+{
+
+    cout << "Write Cartes" << endl;
+    ofstream file;
+    file.open(filename.c_str());
+    if (file.is_open()){
+        file << carte->getId() << ":";
+        file << carte->getNom() << ":" ;
+        file << carte->getDescription() << ":";
+        file << carte->getPrix() << ":";
+        file << carte->getRecyclable() << ":"; 
+        file << carte->getEffet() << endl;
+        file.close();
+    }
+}
+
+void Utils::Write_Carte(string filename, CartesCreature* carte)
+{
+
+    cout << "Write Cartes" << endl;
+    ofstream file;
+    file.open(filename.c_str());
+    if (file.is_open()){
+        file << carte->getId() << ":";
+        file << carte->getNom() << ":" ;
+        file << carte->getDescription() << ":";
+        file << carte->getPrix() << ":";
+        file << carte->getLp() << ":"; 
+        file << carte->getHp() << endl;
+        file.close();
+    }
 }

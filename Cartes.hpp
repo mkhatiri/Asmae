@@ -10,7 +10,7 @@ class Cartes
     public:
         
         Cartes();
-        Cartes(int id, string nom, string description);
+        Cartes(int id, string nom, string description, int prix);
         virtual ~Cartes();
         string getNom();
         void setNom(string nom);
@@ -19,7 +19,8 @@ class Cartes
         int getId();
         void setId(int id);
 
-
+        int getPrix();
+        void setPrix(int id);
 //        virtual int GetCardType() = 0;
         void display(); 
 
@@ -27,6 +28,7 @@ class Cartes
         int m_id; //chaque Carte dans le jeu a un id unique.
         string m_nom;
         string m_description;
+        int m_prix;
         
     private:
     

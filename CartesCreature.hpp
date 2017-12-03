@@ -10,7 +10,8 @@ using namespace std;
 class CartesCreature :  public Cartes
 {
     public:
-        CartesCreature(int id, string nom, string description, int lp, int hp);
+        CartesCreature();
+        CartesCreature(int id, string nom, string description, int prix, int lp, int hp);
         virtual ~CartesCreature();
 
         int getLp();

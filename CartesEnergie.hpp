@@ -10,9 +10,10 @@ using namespace std;
 class CartesEnergie :  public Cartes
 {
     public:
-        CartesEnergie(int id, string nom, string description, int domaine, int energie);
+        CartesEnergie(int id, string nom, string description, int prix, int domaine, int energie);
         virtual ~CartesEnergie();
 
+        CartesEnergie();
         int getDomaine();
         void setDomaine(int energie);
         int getEnergie();

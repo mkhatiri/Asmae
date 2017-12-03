@@ -40,4 +40,21 @@ void Collection::setCartes(CartesCreature CE)
 }
 
 
+void Collection::display()
+{
+   int i=0; 
+    cout << " ******* Cartes Energie *********** " << endl; 
+    
+    for(i=0; i<cartes_Energies.size(); i++)
+        cartes_Energies[i].display();
 
+    cout << " ******* Cartes Special *********** " << endl; 
+    for(i=0; i<cartes_Speciales.size(); i++)
+        cartes_Speciales[i].display();
+
+    cout << " ******* Cartes Creature *********** " << endl; 
+    for(i=0; i<cartes_Creatures.size(); i++)
+        cartes_Creatures[i].display();
+
+
+}

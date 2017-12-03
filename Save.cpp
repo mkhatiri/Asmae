@@ -50,7 +50,12 @@ void Save::display()
         for(i = 0; i < nombrePlayers; i++){
             players[i].display();
         }
+
+        cout << "------------- la liste des Cartes --------------- " << endl;
+
+        magasin.display(); 
 }
+
 
 
 
@@ -59,7 +64,7 @@ void Save::load_players()
 
     Utils utils ;
     int i = 0;
-    vector <Player> vplayers = utils.Read_Players("player1.txt");
+    vector <Player> vplayers = utils.Read_Players("Data/Players.txt");
 
     for(i = 0; i< vplayers.size(); i++)
         addPlayer(vplayers[i]);
@@ -87,6 +92,31 @@ Player Save::getPlayer(string nom)
        
     return p1;    
 
+}
+
+void Save::load_Cartes()
+{
+
+    Utils utils ;
+    int i = 0;
+
+    CartesCreature CC;
+    CartesSpecial CS;
+    CartesEnergie CE;
+
+
+    vector <CartesCreature> vCC = utils.Read_Cartes("Data/CarteCreature.txt", CC);
+    for(i = 0; i< vCC.size(); i++)
+        magasin.setCartes(vCC[i]);
+
+
+    vector <CartesSpecial> vCS = utils.Read_Cartes("Data/CarteSpecial.txt", CS);
+    for(i = 0; i< vCS.size(); i++)
+        magasin.setCartes(vCS[i]);
+
+    vector <CartesEnergie> vCE = utils.Read_Cartes("Data/CarteEnergie.txt", CE);
+    for(i = 0; i< vCE.size(); i++)
+        magasin.setCartes(vCE[i]);
 }
 
 

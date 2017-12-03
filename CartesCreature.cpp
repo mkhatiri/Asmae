@@ -4,11 +4,19 @@
 using namespace std;
 
 
-CartesCreature::CartesCreature(int id, string nom, string description, int lp, int hp) : Cartes(id, nom, description) , m_Lp(lp), m_Hp(hp)
+
+CartesCreature::CartesCreature(int id, string nom, string description, int prix ,int lp, int hp) : Cartes(id, nom, description, prix) , m_Lp(lp), m_Hp(hp)
 {
     cout << " -- Life Points : " << lp << endl; 
     cout << " -- Hit Points : " << hp << endl; 
 }
+
+
+CartesCreature::CartesCreature()
+{
+    //dtor
+}
+
 
 
 CartesCreature::~CartesCreature()

@@ -26,6 +26,7 @@ class Collection
         void setCartes(CartesSpecial CS);
 
         void getCartes(int id);
+        void display();
 
     protected:
     private:
