@@ -50,7 +50,6 @@ vector<Player>  Utils::Read_Players(string filename)
         //  file >> line ; // ":" << player.getCollectionFile();
         //    cout << line << endl;
             Player* p = lineToPlayer(line);
-
             p = loadCollection(p);
 
             if(p){

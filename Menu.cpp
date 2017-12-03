@@ -2,6 +2,7 @@
 #include "Menu.hpp"
 #include "Player.hpp"
 #include "Utils.hpp"
+#include <cstdlib>
 
 using namespace std;
 
@@ -62,32 +63,43 @@ retour :
     
         if(!choix.compare("B"))
         {
-            Player p1;
-            p1.init();
-            session.addPlayer(p1);
-            session.player = p1;
-           goto retour; 
+            Player p;
+            p.init();
+            // generer la premier collection au hasard
+            int randomvariable = rand() % session.magasin.cartes_Energies.size();
+            CartesEnergie  randomCarte = session.magasin.cartes_Energies[randomvariable];
+            p.collection.cartes_Energies.push_back(randomCarte);
+
+            randomvariable = rand() % session.magasin.cartes_Creatures.size();
+            CartesCreature  randomCarte2 = session.magasin.cartes_Creatures[randomvariable];
+            p.collection.cartes_Creatures.push_back(randomCarte2);
+
+            randomvariable = rand() % session.magasin.cartes_Speciales.size();
+            CartesSpecial  randomCarte3 = session.magasin.cartes_Speciales[randomvariable];
+            p.collection.cartes_Speciales.push_back(randomCarte3);
+
+            session.addPlayer(p);
+            goto retour; 
         }
 
         if(!choix.compare("A"))
         {
-        string nom;
-        cout << "inserer le nom du joueur " << endl;
-        cin >> nom;
-        Player p1 = session.getPlayer(nom);
-                
-        if(!p1.getNom().compare(""))
+            string nom;
+            cout << "inserer le nom du joueur " << endl;
+            cin >> nom;
+            Player p1 = session.getPlayer(nom);
+
+            if(!p1.getNom().compare(""))
             {
                 cout << " !!!!!!!!!!!!!!!!!!!!!!    invalide nom du joueur !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" <<endl; 
                 // session.display();
                 goto retour;
+            }else{
+                session.player = p1;
             }
 
-    retour2:
+retour2:
 
-            session.player = p1;
-            session.player.display();
-            session.player.displayCollection();
             cout << "  ********** Bienvenue " << session.player.getNom() << " *******  " << endl;                         
 
             cout << " A :  Joueer un matche " << endl;                                      
@@ -98,16 +110,18 @@ retour :
 
             cout << " D :  Personaliser le Deck " << endl;                                    
 
-            cout << " F :  Afficher la liste des cartes " << endl;                                    
+            cout << " F :  afficher le deck " << endl;                                    
+
+            cout << " G :  Afficher la liste des cartes " << endl;                                    
 
             cout << " Q :  Quiter " << endl;  
 
             cout << "  **************************************************************" << endl;                         
-            cout << "Tapper le caractaire lier pour choisir le menue " << endl;         
+            cout << " Tapper le caractaire lier pour choisir le menue " << endl;         
 
             cin >> choix ;
 
-            if(choix.compare("A") && choix.compare("B") && choix.compare("Q") && choix.compare("C")  && choix.compare("D")  && choix.compare("F") )        
+            if(choix.compare("A") && choix.compare("B") && choix.compare("Q") && choix.compare("C")  && choix.compare("D")  && choix.compare("F") && choix.compare("G"))        
             {                                                                          
                 cout << " !!!!!!!!!!!!!!!!! choix incorrect  !!!!!!!!!! " << endl;     
                 goto retour2;                                                           
@@ -119,11 +133,18 @@ retour :
                 goto retour2;
             }
 
-            if(!choix.compare("C")) 
+            if(!choix.compare("G")) 
             {
                 session.player.displayCollection();
                 goto retour2;
             }
+
+            if(!choix.compare("F")) 
+            {
+                session.player.Deck.display();
+                goto retour2;
+            }
+
 
 
             if(!choix.compare("A"))
@@ -135,8 +156,28 @@ retour :
 
             if(!choix.compare("D"))
             {
-                cout << " a faire " <<endl;
-               // session.initDeck();
+                cout << " personaliser votre deck " << endl;
+
+                cout << "  selctionner une Carte Energie " << endl ; 
+                CartesEnergie CE = session.acheterUneCarteE(session.player.collection);
+                session.player.Deck.cartes_Energies.push_back(CE);
+
+
+                cout << "  selctionner une Carte Special " << endl ; 
+                CartesSpecial CS = session.acheterUneCarteS(session.player.collection);
+                session.player.Deck.cartes_Speciales.push_back(CS);
+
+
+
+
+                cout << "  selctionner une Carte Creatre " << endl ; 
+                CartesCreature CC = session.acheterUneCarteC(session.player.collection);
+                session.player.Deck.cartes_Creatures.push_back(CC);
+
+
+                cout << " deck bien initialiser " << endl;
+
+
                 goto retour2;    
             }
 
@@ -144,37 +185,36 @@ retour :
             if(!choix.compare("B"))
             {
 
-            cout << "  ********** Bienvenue " << session.player.getNom() << " *******  " << endl;                         
-            cout << " A :  Acheter une carte Energie " << endl;                                      
+                cout << "  ********** Bienvenue " << session.player.getNom() << "( " << session.player.getPoint() << " point de vie )  *******  " << endl;                         
+                cout << " A :  Acheter une carte Energie " << endl;                                      
 
-            cout << " B :  Acheter une carte Creature " << endl;                                    
+                cout << " B :  Acheter une carte Creature " << endl;                                    
 
-            cout << " C :  Acheter une carte Special " << endl;                                    
+                cout << " C :  Acheter une carte Special " << endl;                                    
 
-            cout << " R :  Annuler " << endl;  
+                cout << " R :  Annuler " << endl;  
 
-            cout << " Q :  Quiter " << endl;  
+                cout << " Q :  Quiter " << endl;  
 
-            cout << "  **************************************************************" << endl;                         
-            cout << "Tapper le caractaire lier pour choisir le menue " << endl;         
+                cout << "  **************************************************************" << endl;                         
+                cout << "Tapper le caractaire lier pour choisir le menue " << endl;         
 
-            cin >> choix ;
+                cin >> choix ;
 
-            if(choix.compare("A") && choix.compare("B") && choix.compare("Q") && choix.compare("C") && choix.compare("R") )        
-            {                                                                          
-                cout << " !!!!!!!!!!!!!!!!! choix incorrect  !!!!!!!!!! " << endl;     
-                goto retour2;                                                           
-            }
-                
+                if(choix.compare("A") && choix.compare("B") && choix.compare("Q") && choix.compare("C") && choix.compare("R") )        
+                {                                                                          
+                    cout << " !!!!!!!!!!!!!!!!! choix incorrect  !!!!!!!!!! " << endl;     
+                    goto retour2;                                                           
+                }
+
                 if(!choix.compare("A"))
                 {
-                    CartesEnergie CE = session.acheterUneCarteE();
+                    CartesEnergie CE = session.acheterUneCarteE(session.magasin);
                     if(CE.getPrix() <= session.player.getPoint())
-                    {
+                    { 
                         session.player.collection.cartes_Energies.push_back(CE);
                         session.player.setPoint(session.player.getPoint() - CE.getPrix());
-                        cout << " achat valide ";
-                        session.player.displayCollection();
+                        cout << " achat valide " << endl;;
                         goto retour2;
                     }else
                     {
@@ -185,7 +225,7 @@ retour :
 
                 if(!choix.compare("B"))
                 {
-                    CartesCreature CC = session.acheterUneCarteC();
+                    CartesCreature CC = session.acheterUneCarteC(session.magasin);
                     if(CC.getPrix() <= session.player.getPoint())
                     {
                         session.player.collection.cartes_Creatures.push_back(CC);
@@ -202,7 +242,7 @@ retour :
 
                 if(!choix.compare("C"))
                 {
-                    CartesSpecial CS = session.acheterUneCarteS();
+                    CartesSpecial CS = session.acheterUneCarteS(session.magasin);
                     if(CS.getPrix() <= session.player.getPoint())
                     {
                         session.player.collection.cartes_Speciales.push_back(CS);

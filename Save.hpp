@@ -22,9 +22,9 @@ class Save
         void load_Cartes();
         Collection magasin;
 
-        CartesCreature acheterUneCarteC();
-        CartesEnergie acheterUneCarteE();
-        CartesSpecial acheterUneCarteS();
+        CartesCreature acheterUneCarteC(Collection data);
+        CartesEnergie acheterUneCarteE(Collection data);
+        CartesSpecial acheterUneCarteS(Collection data);
         void initDeck();
         void saveSession();
         Player player;

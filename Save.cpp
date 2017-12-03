@@ -3,6 +3,8 @@
 #include "Save.hpp"
 #include "Player.hpp"
 #include "Utils.hpp"
+
+
 #include <cstdlib>
 #include <iostream>
 using namespace std;
@@ -22,10 +24,11 @@ int Save::addPlayer()
     Player p;
     p.init();
     
-    players[nombrePlayers] = p;
+    int randomvariable;
 
+    players[nombrePlayers] = p;
     nombrePlayers ++;
-    
+
     cout << "nouveau joueur :" << endl;
     p.display();  
     return nombrePlayers;
@@ -148,17 +151,20 @@ void Save::saveSession()
 
 
 
-CartesCreature Save::acheterUneCarteC()
+CartesCreature Save::acheterUneCarteC(Collection data)
 {
 
     int i=0;
     string s;
     CartesCreature cc;
-    for( i=0; i<magasin.cartes_Creatures.size();i++)
+    cout << "*****************   la liste des carte disponible **************************" << endl;
+    for( i=0; i<data.cartes_Creatures.size();i++)
     {
         cout << "Numero de la carte : "<<  i << " : " << endl; 
-        magasin.cartes_Creatures[i].display(); 
+        data.cartes_Creatures[i].display(); 
+        cout << "----------------------------------------------" << endl;
     }
+        cout << "*************************************************************************" << endl;
 
 retour:
     cout << "inseret le numero de la carte que tu veux acheter" << endl; 
@@ -167,13 +173,13 @@ retour:
     int num = atoi(s.c_str());
 
 
-    if(num >= magasin.cartes_Creatures.size())
+    if(num > data.cartes_Creatures.size())
     {
         cout << "numero invalide !!!!!!!!!!!!!!!!!!! " <<endl;
         goto retour;
     
     }else{
-        cc = magasin.cartes_Creatures[num];    
+        cc = data.cartes_Creatures[num];    
     }
 
     return cc;
@@ -182,18 +188,20 @@ retour:
 
 
 
-CartesSpecial Save::acheterUneCarteS()
+CartesSpecial Save::acheterUneCarteS(Collection data)
 {
 
     int i=0;
     string s;
     CartesSpecial cs;
-    for( i=0; i<magasin.cartes_Speciales.size();i++)
+     cout << "*****************   la liste des carte disponible **************************" << endl;
+    for( i=0; i<data.cartes_Speciales.size();i++)
     {
         cout << "Numero de la carte : "<<  i << " : " << endl; 
-        magasin.cartes_Speciales[i].display(); 
+        data.cartes_Speciales[i].display(); 
+        cout << "----------------------------------------------" << endl; 
     }
-
+cout << "*************************************************************************" << endl;
 retour:
     cout << "inseret le numero de la carte que tu veux acheter" << endl; 
     cin >> s;
@@ -201,13 +209,13 @@ retour:
     int num = atoi(s.c_str());
 
 
-    if(num >= magasin.cartes_Speciales.size())
+    if(num >= data.cartes_Speciales.size())
     {
         cout << "numero invalide !!!!!!!!!!!!!!!!!!! " <<endl;
         goto retour;
     
     }else{
-        cs = magasin.cartes_Speciales[num];    
+        cs = data.cartes_Speciales[num];    
     }
 
     return cs;
@@ -217,17 +225,20 @@ retour:
 
 
 
-CartesEnergie Save::acheterUneCarteE()
+CartesEnergie Save::acheterUneCarteE(Collection data)
 {
 
     int i=0;
     string s;
     CartesEnergie ce;
-    for( i=0; i<magasin.cartes_Energies.size();i++)
+    cout << "*****************   la liste des carte disponible **************************" << endl;
+    for( i=0; i<data.cartes_Energies.size();i++)
     {
         cout << "Numero de la carte : "<<  i << " : " << endl; 
-        magasin.cartes_Energies[i].display(); 
+        data.cartes_Energies[i].display(); 
+        cout << "----------------------------------------------" << endl;
     }
+    cout << "*************************************************************************" << endl;
 
 retour:
     cout << "inseret le numero de la carte que tu veux acheter" << endl; 
@@ -236,18 +247,17 @@ retour:
     int num = atoi(s.c_str());
 
 
-    if(num >= magasin.cartes_Energies.size())
+    if(num >= data.cartes_Energies.size())
     {
         cout << "numero invalide !!!!!!!!!!!!!!!!!!! " <<endl;
         goto retour;
     
     }else{
-        ce = magasin.cartes_Energies[num];    
+        ce = data.cartes_Energies[num];    
     }
 
     return ce;
     
 }
-
 
 

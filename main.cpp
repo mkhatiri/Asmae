@@ -6,6 +6,7 @@
 #include "CartesCreature.hpp"
 #include "CartesSpecial.hpp"
 #include "Utils.hpp"
+#include "Menu.hpp"
 #include <fstream>
 
 #include <string>
@@ -23,10 +24,14 @@ int main()
     //test Player
 //    Player* p1 = new Player("Mohammed", 12);
 
-    Save *session1 = new Save();
+    Menu m; 
+    
+    m.menuPrincipal();
 
-    session1->load_players();
-    session1->load_Cartes();
+//    Save *session1 = new Save();
+
+//    session1->load_players();
+//    session1->load_Cartes();
 
 //    p1->collection.cartes_Speciales = session1->magasin.cartes_Speciales; 
 //    p1->collection.cartes_Energies = session1->magasin.cartes_Energies; 

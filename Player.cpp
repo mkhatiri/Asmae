@@ -10,6 +10,7 @@ Player::Player()
 
 Player::Player(string nom, int point=0): m_Nom(nom), m_Point(point)
 {
+
 }
 
 Player::~Player()
@@ -23,7 +24,7 @@ void Player::display()
     cout << "Nom du joueur : " << m_Nom ;
     cout << " avec " << m_Point << " Points de vie  "  << endl;
 
-   // displayCollection();
+    displayCollection();
 }
 
 void Player::updatePlayer()
@@ -101,15 +102,17 @@ void Player::displayCollection()
 {
     int i;
 
-    cout <<" *************   Carte Energie ************* "<< endl;
+    cout <<" *************  " <<  " Carte Energie ************* "<< endl;
     for(i==0; i< collection.cartes_Energies.size(); i++)
         collection.cartes_Energies[i].display();
+    
 
-    cout <<" *************   Carte Speacial ************ "<< endl;
+    cout <<" ************* "<<   " Carte Speacial ************ "<< endl;
     for(i==0; i< collection.cartes_Speciales.size(); i++)
         collection.cartes_Speciales[i].display();
 
-    cout <<" *************   Carte Creature ************* "<< endl;
+
+    cout <<" *************  Carte Creature ************* "<< endl;
     for(i==0; i< collection.cartes_Creatures.size(); i++)
         collection.cartes_Creatures[i].display();
 }
