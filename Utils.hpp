@@ -23,7 +23,7 @@ class Utils
         
         // Player
         vector <Player>  Read_Players(string fileName);
-        void Write_Player(string fileName, Player* player);
+        void Write_Player(string fileName, vector <Player> player);
         
         
         //Cartes
@@ -41,6 +41,8 @@ class Utils
         //
         
         Player* lineToPlayer(string line);
+
+        Player* loadCollection(Player *p);
 
         CartesEnergie* lineToCarte(string line, CartesEnergie CE);
         CartesSpecial* lineToCarte(string line, CartesSpecial CS);

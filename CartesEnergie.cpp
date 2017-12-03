@@ -23,9 +23,10 @@ CartesEnergie::~CartesEnergie()
 void CartesEnergie::display()
 {
     Cartes::display();    
-    cout << "--------- Carte Creature -----------" << endl;
+    cout << "Carte Creature :" << endl;
     cout << " -- Domaine : " << getDomaine() << endl;    // on va classifier dans un fichier le Domaine pour avoir le nom de domaine.
     cout << " -- Energie : " << getEnergie() << endl;
+    cout << "------------------------------------------" <<endl;
 }
 
 int CartesEnergie::getDomaine()

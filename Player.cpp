@@ -20,8 +20,10 @@ Player::~Player()
 void Player::display()
 {
 
-    cout << m_Nom << " avec  " << m_Point << " points" << std::endl;
+    cout << "Nom du joueur : " << m_Nom ;
+    cout << " avec " << m_Point << " Points de vie  "  << endl;
 
+   // displayCollection();
 }
 
 void Player::updatePlayer()
@@ -35,9 +37,14 @@ void Player::updatePlayer()
 void Player::init()
 {
 
-    cout << "Nom : " ;
+    cout << "Donner le Nom : " ;
     cin >> this->m_Nom ;
-    setPoint(0) ;
+    setPoint(30);
+    
+    cout << "nouveau : ";
+
+    display();
+
 
 }
 
@@ -128,8 +135,5 @@ void Player::SaveCollection()
     fileName = "Data/" + getNom() + "E.txt";
     utils.Write_Carte(fileName, collection.cartes_Energies);
     cout << "Cartes Energie sauvgarder !!!!!!!!! " << endl; 
-
-
-
 
 }

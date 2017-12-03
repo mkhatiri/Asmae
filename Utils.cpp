@@ -7,9 +7,9 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include<vector>
+#include <vector>
 #include <cstring>
-#include<cstdlib>
+#include <cstdlib>
 
 
 using namespace std;
@@ -50,6 +50,9 @@ vector<Player>  Utils::Read_Players(string filename)
         //  file >> line ; // ":" << player.getCollectionFile();
         //    cout << line << endl;
             Player* p = lineToPlayer(line);
+
+            p = loadCollection(p);
+
             if(p){
                     players.push_back(*p);
             }
@@ -61,18 +64,43 @@ vector<Player>  Utils::Read_Players(string filename)
             cout << filename << " n'esiste pas " << endl;
     
     }
+
+  
+
     return players;
 }
 
 
 
-void Utils::Write_Player(string filename, Player* player)
+Player* Utils::loadCollection(Player * p)
+{
+    string CC_file_name = "Data/" + p->getNom() + "C.txt";
+    string CS_file_name = "Data/" + p->getNom() + "S.txt";
+    string CE_file_name = "Data/" + p->getNom() + "E.txt";
+    CartesEnergie CE;
+    CartesSpecial CS;
+    CartesCreature CC;
+
+    p->collection.cartes_Energies = Read_Cartes(CE_file_name, CE); 
+    p->collection.cartes_Speciales = Read_Cartes(CE_file_name, CS); 
+    p->collection.cartes_Creatures = Read_Cartes(CE_file_name, CC); 
+
+
+    return p;
+
+}
+
+
+
+void Utils::Write_Player(string filename, vector <Player> player)
 {
 
     ofstream file;
     file.open(filename.c_str());
+    file.seekp(0,ios::end);
     if (file.is_open()){
-        file << player->getNom() << ":" << player->getPoint() ; // ":" << player.getCollectionFile();
+        for(int i=0;i<player.size();i++)
+            file << player[i].getNom() << ":" << player[i].getPoint() << endl ; // ":" << player.getCollectionFile();
         file.close();
     }
 

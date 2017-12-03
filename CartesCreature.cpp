@@ -27,11 +27,12 @@ CartesCreature::~CartesCreature()
 void CartesCreature::display()
 {
     Cartes::display();    
-    cout << "--------- Carte Creature -----------" << endl;
+    cout << "Carte Creature" << endl;
     cout << " -- Life Points : " << getLp() << endl;
     cout << " -- Hit Points : " << getHp() << endl;
-    cout << "----------- les attaques possible ----------------" << endl;
-    cout << "--------- TO DO ------------------------------- " <<endl;
+    cout << "-les attaques possible ----------------" << endl;
+    cout << "--------- A faire..... " <<endl;
+    cout << "------------------------------------------" <<endl;
 }
 
 int CartesCreature::getLp()

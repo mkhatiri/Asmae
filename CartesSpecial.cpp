@@ -24,9 +24,10 @@ CartesSpecial::~CartesSpecial()
 void CartesSpecial::display()
 {
     Cartes::display();    
-    cout << "--------- Carte Speacial -----------" << endl;
+    cout << "Carte Speacial" << endl;
     cout << " -- carte recyclable : " << isRecyclable() << endl; 
     cout << " -- Effet : " << getEffet() << endl; 
+    cout << "------------------------------------------" <<endl;
 }
 
 bool CartesSpecial::getRecyclable()

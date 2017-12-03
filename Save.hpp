@@ -3,7 +3,7 @@
 
 #include <iostream> 
 #include "Player.hpp" 
-#include<vector>
+#include <vector>
 
 using namespace std;
 
@@ -20,7 +20,14 @@ class Save
         Player getPlayer(string nom); 
         void load_players();
         void load_Cartes();
-       Collection magasin;
+        Collection magasin;
+
+        CartesCreature acheterUneCarteC();
+        CartesEnergie acheterUneCarteE();
+        CartesSpecial acheterUneCarteS();
+        void initDeck();
+        void saveSession();
+        Player player;
 
     protected:
     private:
@@ -28,4 +35,4 @@ class Save
        int nombrePlayers;      
 };
 
-#endif // PLAYER_HPP
+#endif // Sava_HPP

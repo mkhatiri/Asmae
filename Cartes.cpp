@@ -3,7 +3,7 @@
 using namespace std;
 
 
-Cartes::Cartes(int id, string nom, string description, int prix): m_nom(nom) , m_description(description), m_id(id), m_prix()
+Cartes::Cartes(int id, string nom, string description, int prix): m_nom(nom) , m_description(description), m_id(id), m_prix(prix)
 {
 //    cout << "new Carte : " << endl;
 //    cout << " - Nom : " << nom << endl;
@@ -24,7 +24,7 @@ Cartes::~Cartes()
 
 void Cartes::display()
 {
-    cout << "id : " << getId() <<endl;
+    cout << "Prix : " << getId() <<endl;
     cout << "Nom : " << getNom() << endl;
     cout << "Description : " << getDescription() << endl;     
 

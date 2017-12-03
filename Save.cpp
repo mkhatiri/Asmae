@@ -1,8 +1,10 @@
 #include <string>
+#include <cstring>
 #include "Save.hpp"
 #include "Player.hpp"
 #include "Utils.hpp"
-
+#include <cstdlib>
+#include <iostream>
 using namespace std;
 
 Save::Save()
@@ -24,7 +26,7 @@ int Save::addPlayer()
 
     nombrePlayers ++;
     
-    cout << "nouveau joueur :" ;
+    cout << "nouveau joueur :" << endl;
     p.display();  
     return nombrePlayers;
 }
@@ -32,11 +34,12 @@ int Save::addPlayer()
 int Save::addPlayer(Player p)
 {
     
-    players[nombrePlayers] = p;
-
-    nombrePlayers ++;
-    
-  //  cout << "nouveau joueur :" ;
+    if(p.getNom().compare(""))
+    {
+        players[nombrePlayers] = p;
+        nombrePlayers ++;
+    }
+    //  cout << "nouveau joueur :" ;
   //  p.display();  
     return nombrePlayers;
 }
@@ -51,9 +54,9 @@ void Save::display()
             players[i].display();
         }
 
-        cout << "------------- la liste des Cartes --------------- " << endl;
+//        cout << "------------- la liste des Cartes --------------- " << endl;
 
-        magasin.display(); 
+//        magasin.display(); 
 }
 
 
@@ -78,7 +81,8 @@ Player Save::getPlayer(string nom)
     int i;
     int find = false;
 
-    for(i=0; i<nombrePlayers-1; i++)
+
+    for(i=0; i<nombrePlayers; i++)
     {
         if(nom.compare(players[i].getNom()) == 0)
            {
@@ -118,5 +122,132 @@ void Save::load_Cartes()
     for(i = 0; i< vCE.size(); i++)
         magasin.setCartes(vCE[i]);
 }
+
+
+
+void Save::saveSession()
+{
+    Utils utils; 
+
+    vector <Player> vplayers;
+
+    for(int i=0 ; i<nombrePlayers; i++)
+    {
+        if(players[i].getNom().compare(player.getNom()))  // pour eviter d'inserer le player qui joue la session deux fois.
+        {
+            players[i].SaveCollection();
+            vplayers.push_back(players[i]);
+        }
+    }
+    player.SaveCollection();  // sauvegarder aussi le joueur de la session
+    vplayers.push_back(player);
+
+    utils.Write_Player("Data/Players.txt", vplayers);
+
+}
+
+
+
+CartesCreature Save::acheterUneCarteC()
+{
+
+    int i=0;
+    string s;
+    CartesCreature cc;
+    for( i=0; i<magasin.cartes_Creatures.size();i++)
+    {
+        cout << "Numero de la carte : "<<  i << " : " << endl; 
+        magasin.cartes_Creatures[i].display(); 
+    }
+
+retour:
+    cout << "inseret le numero de la carte que tu veux acheter" << endl; 
+    cin >> s;
+
+    int num = atoi(s.c_str());
+
+
+    if(num >= magasin.cartes_Creatures.size())
+    {
+        cout << "numero invalide !!!!!!!!!!!!!!!!!!! " <<endl;
+        goto retour;
+    
+    }else{
+        cc = magasin.cartes_Creatures[num];    
+    }
+
+    return cc;
+    
+}
+
+
+
+CartesSpecial Save::acheterUneCarteS()
+{
+
+    int i=0;
+    string s;
+    CartesSpecial cs;
+    for( i=0; i<magasin.cartes_Speciales.size();i++)
+    {
+        cout << "Numero de la carte : "<<  i << " : " << endl; 
+        magasin.cartes_Speciales[i].display(); 
+    }
+
+retour:
+    cout << "inseret le numero de la carte que tu veux acheter" << endl; 
+    cin >> s;
+
+    int num = atoi(s.c_str());
+
+
+    if(num >= magasin.cartes_Speciales.size())
+    {
+        cout << "numero invalide !!!!!!!!!!!!!!!!!!! " <<endl;
+        goto retour;
+    
+    }else{
+        cs = magasin.cartes_Speciales[num];    
+    }
+
+    return cs;
+    
+}
+
+
+
+
+CartesEnergie Save::acheterUneCarteE()
+{
+
+    int i=0;
+    string s;
+    CartesEnergie ce;
+    for( i=0; i<magasin.cartes_Energies.size();i++)
+    {
+        cout << "Numero de la carte : "<<  i << " : " << endl; 
+        magasin.cartes_Energies[i].display(); 
+    }
+
+retour:
+    cout << "inseret le numero de la carte que tu veux acheter" << endl; 
+    cin >> s;
+
+    int num = atoi(s.c_str());
+
+
+    if(num >= magasin.cartes_Energies.size())
+    {
+        cout << "numero invalide !!!!!!!!!!!!!!!!!!! " <<endl;
+        goto retour;
+    
+    }else{
+        ce = magasin.cartes_Energies[num];    
+    }
+
+    return ce;
+    
+}
+
 
 
