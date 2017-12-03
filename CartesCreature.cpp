@@ -7,8 +7,8 @@ using namespace std;
 
 CartesCreature::CartesCreature(int id, string nom, string description, int prix ,int lp, int hp) : Cartes(id, nom, description, prix) , m_Lp(lp), m_Hp(hp)
 {
-    cout << " -- Life Points : " << lp << endl; 
-    cout << " -- Hit Points : " << hp << endl; 
+//    cout << " -- Life Points : " << lp << endl; 
+//    cout << " -- Hit Points : " << hp << endl; 
 }
 
 

@@ -6,8 +6,8 @@ using namespace std;
 
 CartesEnergie::CartesEnergie(int id, string nom, string description, int prix, int domaine, int energie) : Cartes(id, nom, description, prix) , m_Domaine(domaine), m_Energie(energie)
 {
-    cout << " -- Domaine : " << domaine << endl; 
-    cout << " -- Energie : " << energie << endl; 
+//    cout << " -- Domaine : " << domaine << endl; 
+//    cout << " -- Energie : " << energie << endl; 
 }
 
 CartesEnergie::CartesEnergie()

@@ -1,5 +1,4 @@
-CS1:description carte specla 1:1:4
-CS2:description carte specla 2:0:3
-CS3:description carte specla 3:1:2
-CS4:description carte specla 4:0:1
-
+1:CS1:description carte specla 1:100:1:4
+2:CS2:description carte specla 2:80:0:3
+3:CS3:description carte specla 3:40:1:2
+4:CS4:description carte specla 4:95:0:1

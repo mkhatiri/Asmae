@@ -6,7 +6,8 @@ using namespace std;
 
 CartesSpecial::CartesSpecial(int id, string nom, string description, int prix, bool recyclable, int effet) : Cartes(id, nom, description, prix) , m_Recyclable(recyclable), m_effet(effet)
 {
-    cout << " -- carte recyclable : " << recyclable << endl; 
+//    cout << " -- carte recyclable : " << recyclable << endl; 
+//    cout << " -- Effet  : " << effet << endl; 
 }
 
 

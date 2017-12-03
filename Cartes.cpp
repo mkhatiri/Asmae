@@ -5,10 +5,10 @@ using namespace std;
 
 Cartes::Cartes(int id, string nom, string description, int prix): m_nom(nom) , m_description(description), m_id(id), m_prix()
 {
-    cout << "new Carte : " << endl;
-    cout << " - Nom : " << nom << endl;
-    cout << " - Description : " << description << endl;     
-    cout << " - Prix : " << prix << endl;     
+//    cout << "new Carte : " << endl;
+//    cout << " - Nom : " << nom << endl;
+//    cout << " - Description : " << description << endl;     
+//    cout << " - Prix : " << prix << endl;     
 }
 
 Cartes::Cartes()

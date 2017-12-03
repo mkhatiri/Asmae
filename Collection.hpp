@@ -27,6 +27,7 @@ class Collection
 
         void getCartes(int id);
         void display();
+        Collection getRandomDeck();
 
     protected:
     private:

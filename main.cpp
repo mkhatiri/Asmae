@@ -21,9 +21,21 @@ using namespace std;
 int main()
 {
     //test Player
-    Player* p1 = new Player("Mohammed", 12);
+//    Player* p1 = new Player("Mohammed", 12);
 
     Save *session1 = new Save();
+
+    session1->load_players();
+    session1->load_Cartes();
+
+//    p1->collection.cartes_Speciales = session1->magasin.cartes_Speciales; 
+//    p1->collection.cartes_Energies = session1->magasin.cartes_Energies; 
+//    p1->collection.cartes_Creatures = session1->magasin.cartes_Creatures; 
+
+    
+//    p1->SaveCollection();
+
+//    session1->display();
 
     //session1->addPlayer();
 
@@ -44,18 +56,6 @@ int main()
 
  //   p2.display();
 
-
-    Cartes *C; 
-
-    Cartes *CC = new CartesCreature(1,"CC2", "description", 23, 44); 
-
-    CC->display();
-
-
-    cout << " ********* affectation " <<endl;
-    C = CC;
-
-    C->display();
     //test Cartes Energie
 
     //    CartesEnergie* carte1 = new CartesEnergie(1, "jdida", "madir walou", 1, 2);

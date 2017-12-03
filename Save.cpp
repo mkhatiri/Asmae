@@ -36,8 +36,8 @@ int Save::addPlayer(Player p)
 
     nombrePlayers ++;
     
-    cout << "nouveau joueur :" ;
-    p.display();  
+  //  cout << "nouveau joueur :" ;
+  //  p.display();  
     return nombrePlayers;
 }
 
@@ -78,7 +78,7 @@ Player Save::getPlayer(string nom)
     int i;
     int find = false;
 
-    for(i=0; i<nombrePlayers; i++)
+    for(i=0; i<nombrePlayers-1; i++)
     {
         if(nom.compare(players[i].getNom()) == 0)
            {

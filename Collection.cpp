@@ -58,3 +58,13 @@ void Collection::display()
 
 
 }
+
+
+Collection Collection::getRandomDeck()
+{
+
+
+
+
+
+}

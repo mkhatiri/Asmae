@@ -20,12 +20,12 @@ class Save
         Player getPlayer(string nom); 
         void load_players();
         void load_Cartes();
+       Collection magasin;
 
     protected:
     private:
        Player players[100];
        int nombrePlayers;      
-       Collection magasin;
 };
 
 #endif // PLAYER_HPP

@@ -1,0 +1,4 @@
+asmae:25
+mohammed:50
+khatiri:12
+bouabdalah:17

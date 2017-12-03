@@ -48,7 +48,7 @@ vector<Player>  Utils::Read_Players(string filename)
     if (file.is_open()){
         while ( getline(file, line) ){
         //  file >> line ; // ":" << player.getCollectionFile();
-            cout << line << endl;
+        //    cout << line << endl;
             Player* p = lineToPlayer(line);
             if(p){
                     players.push_back(*p);
@@ -81,7 +81,7 @@ void Utils::Write_Player(string filename, Player* player)
 
 vector<CartesEnergie>  Utils::Read_Cartes(string filename, CartesEnergie CE)
 {
-    cout << "Read Cartes Energie " << endl;
+    cout << "Read Cartes Energie ............" << endl;
     string line;
     vector <CartesEnergie> cartes;
     ifstream file;
@@ -89,7 +89,7 @@ vector<CartesEnergie>  Utils::Read_Cartes(string filename, CartesEnergie CE)
     if (file.is_open()){
         while ( getline(file, line) ){
         //    file >> line ; // ":" << player.getCollectionFile();
-            cout << line << endl;
+    //        cout << line << endl;
             CartesEnergie* c = lineToCarte(line, CE);
             if(c){
                     cartes.push_back(*c);
@@ -107,7 +107,7 @@ vector<CartesEnergie>  Utils::Read_Cartes(string filename, CartesEnergie CE)
 
 vector<CartesSpecial>  Utils::Read_Cartes(string filename, CartesSpecial CS)
 {
-    cout << "Read Cartes Special " << endl;
+    cout << "Read Cartes Special ............" << endl;
     string line;
     vector <CartesSpecial> cartes;
     ifstream file;
@@ -115,7 +115,7 @@ vector<CartesSpecial>  Utils::Read_Cartes(string filename, CartesSpecial CS)
     if (file.is_open()){
         while ( getline(file, line) ){
         //    file >> line ; // ":" << player.getCollectionFile();
-            cout << line << endl;
+//            cout << line << endl;
             CartesSpecial* c = lineToCarte(line, CS);
             if(c){
                     cartes.push_back(*c);
@@ -132,7 +132,7 @@ vector<CartesSpecial>  Utils::Read_Cartes(string filename, CartesSpecial CS)
 
 vector<CartesCreature>  Utils::Read_Cartes(string filename, CartesCreature CC)
 {
-    cout << "Read Cartes Creature " << endl;
+    cout << "Read Cartes Creature ............" << endl;
     string line;
     vector <CartesCreature> cartes;
     ifstream file;
@@ -140,7 +140,7 @@ vector<CartesCreature>  Utils::Read_Cartes(string filename, CartesCreature CC)
     if (file.is_open()){
         while ( getline(file, line) ){
         //    file >> line ; // ":" << player.getCollectionFile();
-            cout << line << endl;
+  //          cout << line << endl;
             CartesCreature* c = lineToCarte(line, CC);
             if(c){
                     cartes.push_back(*c);
@@ -237,53 +237,60 @@ CartesCreature* Utils::lineToCarte(string line, CartesCreature CC)
 
 
 
-void Utils::Write_Carte(string filename, CartesEnergie* carte)
+void Utils::Write_Carte(string filename, vector <CartesEnergie>  CE)
 {
 
     cout << "Write Cartes" << endl;
     ofstream file;
     file.open(filename.c_str());
     if (file.is_open()){
-        file << carte->getId() << ":";
-        file << carte->getNom() << ":" ;
-        file << carte->getDescription() << ":";
-        file << carte->getPrix() << ":";
-        file << carte->getDomaine() << ":"; 
-        file << carte->getEnergie() << endl;
+        for(int i=0; i<CE.size(); i++){
+            file << CE[i].getId() << ":";
+            file << CE[i].getNom() << ":" ;
+            file << CE[i].getDescription() << ":";
+            file << CE[i].getPrix() << ":";
+            file << CE[i].getDomaine() << ":"; 
+            file << CE[i].getEnergie() << endl;
+        }
         file.close();
     }
 }
 
-void Utils::Write_Carte(string filename, CartesSpecial* carte)
+void Utils::Write_Carte(string filename, vector <CartesSpecial> CS)
 {
 
     cout << "Write Cartes" << endl;
     ofstream file;
     file.open(filename.c_str());
     if (file.is_open()){
-        file << carte->getId() << ":";
-        file << carte->getNom() << ":" ;
-        file << carte->getDescription() << ":";
-        file << carte->getPrix() << ":";
-        file << carte->getRecyclable() << ":"; 
-        file << carte->getEffet() << endl;
+
+        for(int i=0; i<CS.size(); i++){
+            file << CS[i].getId() << ":";
+            file << CS[i].getNom() << ":" ;
+            file << CS[i].getDescription() << ":";
+            file << CS[i].getPrix() << ":";
+            file << CS[i].getRecyclable() << ":"; 
+            file << CS[i].getEffet() << endl;
+        }
         file.close();
     }
 }
 
-void Utils::Write_Carte(string filename, CartesCreature* carte)
+void Utils::Write_Carte(string filename, vector <CartesCreature> CC)
 {
 
     cout << "Write Cartes" << endl;
     ofstream file;
     file.open(filename.c_str());
     if (file.is_open()){
-        file << carte->getId() << ":";
-        file << carte->getNom() << ":" ;
-        file << carte->getDescription() << ":";
-        file << carte->getPrix() << ":";
-        file << carte->getLp() << ":"; 
-        file << carte->getHp() << endl;
+        for(int i=0; i<CC.size(); i++){
+            file << CC[i].getId() << ":";
+            file << CC[i].getNom() << ":" ;
+            file << CC[i].getDescription() << ":";
+            file << CC[i].getPrix() << ":";
+            file << CC[i].getLp() << ":"; 
+            file << CC[i].getHp() << endl;
+        }
         file.close();
     }
 }

@@ -1,4 +1,5 @@
 #include "Player.hpp"
+#include "Utils.hpp"
 
 using namespace std;
 
@@ -104,4 +105,31 @@ void Player::displayCollection()
     cout <<" *************   Carte Creature ************* "<< endl;
     for(i==0; i< collection.cartes_Creatures.size(); i++)
         collection.cartes_Creatures[i].display();
+}
+
+
+void Player::SaveCollection()
+{
+
+    int i=0;
+
+    cout << "Save Carte Creature ........ " << endl;;
+    string fileName = "Data/" + getNom() + "C.txt";
+    Utils utils;
+    utils.Write_Carte(fileName, collection.cartes_Creatures);
+    cout << "Cartes Creature sauvgarder !!!!!!!!! " << endl; 
+
+    cout << "Save Carte Special ........ " << endl;;
+    fileName = "Data/" + getNom() + "S.txt";
+    utils.Write_Carte(fileName, collection.cartes_Speciales);
+    cout << "Cartes Special sauvgarder !!!!!!!!! " << endl; 
+
+    cout << "Save Carte Energie ........ " << endl;;
+    fileName = "Data/" + getNom() + "E.txt";
+    utils.Write_Carte(fileName, collection.cartes_Energies);
+    cout << "Cartes Energie sauvgarder !!!!!!!!! " << endl; 
+
+
+
+
 }

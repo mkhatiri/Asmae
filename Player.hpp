@@ -24,9 +24,7 @@ class Player
         void addCarteToCollection(CartesEnergie CE);
         void addCarteToCollection(CartesSpecial CS);
         void addCarteToCollection(CartesCreature CC);
-
         void displayCollection();  
-
 
         void init();
 
@@ -34,8 +32,7 @@ class Player
         Collection Deck;
 
 
-
-
+        void SaveCollection();
 
     protected:
     private:
