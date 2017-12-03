@@ -2,7 +2,7 @@
 #define PLAYER_HPP
 
 #include <iostream> 
-
+#include "Collection.hpp"
 using namespace std;
 
 
@@ -21,9 +21,20 @@ class Player
         void setNom(string nom);
         void setPoint(int point);
 
+        void addCarteToCollection(CartesEnergie CE);
+        void addCarteToCollection(CartesSpecial CS);
+        void addCarteToCollection(CartesCreature CC);
+
+        void displayCollection();  
 
 
         void init();
+
+        Collection collection;
+        Collection Deck;
+
+
+
 
 
     protected:

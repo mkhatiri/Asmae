@@ -4,7 +4,7 @@
 using namespace std;
 
 
-CartesSpecial::CartesSpecial(int id, string nom, string description, bool recyclable) : Cartes(id, nom, description) , m_Recyclable(recyclable)
+CartesSpecial::CartesSpecial(int id, string nom, string description, bool recyclable, int effet) : Cartes(id, nom, description) , m_Recyclable(recyclable), m_effet(effet)
 {
     cout << " -- carte recyclable : " << recyclable << endl; 
 }
@@ -20,6 +20,7 @@ void CartesSpecial::display()
     Cartes::display();    
     cout << "--------- Carte Speacial -----------" << endl;
     cout << " -- carte recyclable : " << isRecyclable() << endl; 
+    cout << " -- Effet : " << getEffet() << endl; 
 }
 
 bool CartesSpecial::getRecyclable()
@@ -38,7 +39,10 @@ bool CartesSpecial::isRecyclable()
     return getRecyclable();
 }
 
-
+int CartesSpecial::getEffet()
+{
+    return m_effet;
+}
 
 
 

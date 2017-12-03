@@ -23,6 +23,7 @@ Cartes::~Cartes()
 
 void Cartes::display()
 {
+    cout << "id : " << getId() <<endl;
     cout << "Nom : " << getNom() << endl;
     cout << "Description : " << getDescription() << endl;     
 
@@ -48,8 +49,15 @@ void Cartes::setDescription(string description)
     m_description = description;
 }
 
+int Cartes::getId()
+{
+    return m_id;
+}
 
-
+void Cartes::setId(int id)
+{
+   m_id = id;
+}
 
 
 

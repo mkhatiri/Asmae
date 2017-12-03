@@ -1,8 +1,0 @@
-#! /bin/bash
-
-echo "Compilation :"
-g++ main.cpp Cartes.cpp CartesEnergie.cpp Save.cpp Player.cpp CartesCreature.cpp -o run
-
-./run
-
-

@@ -3,6 +3,7 @@
 
 #include <iostream> 
 #include "Player.hpp" 
+#include<vector>
 
 using namespace std;
 
@@ -16,12 +17,12 @@ class Save
         int addPlayer();
         int addPlayer(Player p);
         void display();
-        
+        Player getPlayer(string nom); 
         void load_players();
 
     protected:
     private:
-       Player *players[10];
+       Player players[100];
        int nombrePlayers;      
 };
 

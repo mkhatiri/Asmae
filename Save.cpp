@@ -1,3 +1,4 @@
+#include <string>
 #include "Save.hpp"
 #include "Player.hpp"
 #include "Utils.hpp"
@@ -16,22 +17,22 @@ Save::~Save()
 
 int Save::addPlayer()
 {
-    Player *p = new Player();
-    p->init();
+    Player p;
+    p.init();
     
     players[nombrePlayers] = p;
 
     nombrePlayers ++;
     
     cout << "nouveau joueur :" ;
-    p->display();  
+    p.display();  
     return nombrePlayers;
 }
 
 int Save::addPlayer(Player p)
 {
     
-    players[nombrePlayers] = &p;
+    players[nombrePlayers] = p;
 
     nombrePlayers ++;
     
@@ -47,10 +48,8 @@ void Save::display()
         cout << "------------- la liste des joueurs --------------- " << endl;
 
         for(i = 0; i < nombrePlayers; i++){
-            players[i]->display();
+            players[i].display();
         }
-
-
 }
 
 
@@ -64,11 +63,30 @@ void Save::load_players()
 
     for(i = 0; i< vplayers.size(); i++)
         addPlayer(vplayers[i]);
-
-
-
 }
 
 
+Player Save::getPlayer(string nom)
+{
+    Player p1;
+
+    int i;
+    int find = false;
+
+    for(i=0; i<nombrePlayers; i++)
+    {
+        if(nom.compare(players[i].getNom()) == 0)
+           {
+               p1 = players[i];
+               find = true;
+           }
+    }
+    
+    if(!find)
+        cout << nom << " n'esite pas "<< endl;
+       
+    return p1;    
+
+}
 
 

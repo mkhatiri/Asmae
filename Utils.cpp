@@ -25,6 +25,19 @@ Utils::~Utils()
     //dtor
 }
 
+vector<string> Utils::split(string str, string sep){
+    char* cstr=const_cast<char*>(str.c_str());
+    char* current;
+    vector<string> arr;
+    current=strtok(cstr,sep.c_str());
+    while(current != NULL){
+        arr.push_back(current);
+        current=strtok(NULL, sep.c_str());
+    }
+    return arr;
+}
+
+
 vector<Player>  Utils::Read_Players(string filename)
 {
     cout << "Read player" << endl;
@@ -34,7 +47,7 @@ vector<Player>  Utils::Read_Players(string filename)
     file.open(filename.c_str());
     if (file.is_open()){
         while ( getline(file, line) ){
-        //    file >> line ; // ":" << player.getCollectionFile();
+        //  file >> line ; // ":" << player.getCollectionFile();
             cout << line << endl;
             Player* p = lineToPlayer(line);
             if(p){
@@ -51,6 +64,8 @@ vector<Player>  Utils::Read_Players(string filename)
     return players;
 }
 
+
+
 void Utils::Write_Player(string filename, Player* player)
 {
 
@@ -64,18 +79,18 @@ void Utils::Write_Player(string filename, Player* player)
 }
 
 
-vector<Cartes>  Utils::Read_Cartes(string filename, int type)
+vector<CartesEnergie>  Utils::Read_Cartes(string filename, CartesEnergie CE)
 {
-    cout << "Read Cartes" << endl;
+    cout << "Read Cartes Energie " << endl;
     string line;
-    vector <Cartes> cartes;
+    vector <CartesEnergie> cartes;
     ifstream file;
     file.open(filename.c_str());
     if (file.is_open()){
         while ( getline(file, line) ){
         //    file >> line ; // ":" << player.getCollectionFile();
             cout << line << endl;
-            Cartes* c = lineToCarte(line, type);
+            CartesEnergie* c = lineToCarte(line, CE);
             if(c){
                     cartes.push_back(*c);
             }
@@ -90,7 +105,30 @@ vector<Cartes>  Utils::Read_Cartes(string filename, int type)
 }
 
 
+vector<CartesSpecial>  Utils::Read_Cartes(string filename, CartesSpecial CS)
+{
+    cout << "Read Cartes Special " << endl;
+    string line;
+    vector <CartesSpecial> cartes;
+    ifstream file;
+    file.open(filename.c_str());
+    if (file.is_open()){
+        while ( getline(file, line) ){
+        //    file >> line ; // ":" << player.getCollectionFile();
+            cout << line << endl;
+            CartesSpecial* c = lineToCarte(line, CS);
+            if(c){
+                    cartes.push_back(*c);
+            }
 
+        }
+        file.close();
+    }
+    else{
+            cout << filename << " n'esiste pas " << endl;
+    }
+    return cartes;
+}
 
 
 void Utils::Write_Carte(string filename, Cartes* carte)
@@ -125,66 +163,39 @@ Player * Utils::lineToPlayer(string line)
 
 }
 
-Cartes* Utils::lineToCarte(string line, int type)
+CartesEnergie* Utils::lineToCarte(string line, CartesEnergie CE)
 {
 
     vector<string> v =  split(line, ":");
 
-    if(type == 1){
         if(v.size() == 5){
 
-            Cartes* carte = new CartesEnergie(atoi(v[0].c_str()), v[1], v[2], atoi(v[3].c_str()),  atoi(v[4].c_str()));
+            CartesEnergie* carte = new CartesEnergie(atoi(v[0].c_str()), v[1], v[2], atoi(v[3].c_str()),  atoi(v[4].c_str()));
             return carte ;
 
         }else{
             cout << "--------- Problem : les information du joueur sont pas complet : " << line << endl;
 
             return NULL;
-        }
-
-    }
-
-
-    if(type == 2){
-        if(v.size() == 5){
-
-            Cartes* carte = new CartesCreature(atoi(v[0].c_str()), v[1], v[2], atoi(v[3].c_str()),  atoi(v[4].c_str()));
-            return carte ;
-
-        }else{
-            cout << "--------- Problem : les information du joueur sont pas complet : " << line << endl;
-
-            return NULL;
-        }
-
-    }
-
-    if(type == 3){
-        if(v.size() == 5){
-
-            Cartes* carte = new CartesSpecial(atoi(v[0].c_str()), v[1], v[2], atoi(v[3].c_str()));
-            return carte ;
-
-        }else{
-            cout << "--------- Problem : les information du joueur sont pas complet : " << line << endl;
-
-            return NULL;
-        }
 
     }
 
 }
 
-vector<string> Utils::split(string str, string sep){
-    char* cstr=const_cast<char*>(str.c_str());
-    char* current;
-    vector<string> arr;
-    current=strtok(cstr,sep.c_str());
-    while(current != NULL){
-        arr.push_back(current);
-        current=strtok(NULL, sep.c_str());
-    }
-    return arr;
+CartesSpecial* Utils::lineToCarte(string line, CartesSpecial CS)
+{
+
+    vector<string> v =  split(line, ":");
+
+        if(v.size() == 5){
+
+            CartesSpecial* carte = new CartesSpecial(atoi(v[0].c_str()), v[1], v[2], atoi(v[3].c_str()), atoi(v[4].c_str()));
+            return carte ;
+
+        }else{
+            cout << "--------- Problem : les information du joueur sont pas complet : " << line << endl;
+
+            return NULL;
+        }
+
 }
-
-

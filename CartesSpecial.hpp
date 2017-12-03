@@ -10,14 +10,14 @@ using namespace std;
 class CartesSpecial :  public Cartes
 {
     public:
-        CartesSpecial(int id, string nom, string description, bool recyclable);
+        CartesSpecial(int id, string nom, string description, bool recyclable, int effet);
         virtual ~CartesSpecial();
 
         bool getRecyclable();
         void setRecyclable(bool recyclable);
 
         bool isRecyclable();
-        
+        int getEffet();        
 
         
         virtual int GetCardType() { return 3; }
@@ -27,8 +27,8 @@ class CartesSpecial :  public Cartes
     private:
 
         // cycle de vie de la carte : Si recyclable == false ==> la carte est unique usage 
-           bool m_Recyclable;
-
+        bool m_Recyclable;
+        int m_effet;
 
 
         

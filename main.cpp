@@ -8,27 +8,12 @@
 #include "Utils.hpp"
 #include <fstream>
 
+#include <string>
 #include <cstring>
 #include<cstdlib>
 #include<vector>
 
 using namespace std;
-
-
-
-
-
-vector<string> split(string str, string sep){
-    char* cstr=const_cast<char*>(str.c_str());
-    char* current;
-    vector<std::string> arr;
-    current=strtok(cstr,sep.c_str());
-    while(current != NULL){
-        arr.push_back(current);
-        current=strtok(NULL, sep.c_str());
-    }
-    return arr;
-}
 
 
 
@@ -43,44 +28,69 @@ int main()
     //session1->addPlayer();
 
     //session1->display();
-    session1->load_players();
+//    session1->load_players();
    // p1->display();
+   
 
+//    cout << "chercher joueur";
+//    cout << "Donner le nom du joueur : ";
+//    string nom;
+//    cin >> nom;
+
+//    cout << nom.compare("aba") <<endl;
+
+//    Player p2 = session1->getPlayer(nom);
+
+
+ //   p2.display();
+
+
+    Cartes *C; 
+
+    Cartes *CC = new CartesCreature(1,"CC2", "description", 23, 44); 
+
+    CC->display();
+
+
+    cout << " ********* affectation " <<endl;
+    C = CC;
+
+    C->display();
     //test Cartes Energie
 
-//    CartesEnergie* carte1 = new CartesEnergie(1, "jdida", "madir walou", 1, 2);
-//
-//
- //  carte1->setNom("jdida 2");
+    //    CartesEnergie* carte1 = new CartesEnergie(1, "jdida", "madir walou", 1, 2);
+    //
+    //
+    //  carte1->setNom("jdida 2");
 
-   // cout << carte1->getNom();
+    // cout << carte1->getNom();
 
 
- //   carte1->setDescription(" golnalak makadir walou");
+    //   carte1->setDescription(" golnalak makadir walou");
 
- //   cout << carte1->getDescription() << endl;
+    //   cout << carte1->getDescription() << endl;
 
- //  carte1->display();
+    //  carte1->display();
 
 
     //test Cartes Creature
-    
- //    CartesCreature* carte2 = new CartesCreature(2, "jdida 2", "dir ri chiwa", 300, 273);
 
-//    cout << carte2->getLp() << endl;
+    //    CartesCreature* carte2 = new CartesCreature(2, "jdida 2", "dir ri chiwa", 300, 273);
 
-//    carte2->display();
+    //    cout << carte2->getLp() << endl;
+
+    //    carte2->display();
 
     //test Cartes Special
-    
-//    CartesSpecial* carte3 = new CartesSpecial(3, "jdida 3", "hadi special", false);
 
-//    cout << carte3->isRecyclable() << endl;
+    //    CartesSpecial* carte3 = new CartesSpecial(3, "jdida 3", "hadi special", false);
 
-//    carte3->display();
+    //    cout << carte3->isRecyclable() << endl;
+
+    //    carte3->display();
 
 
-  //  Utils utils;
+    //  Utils utils;
 
 //    utils.Write_Player("player1.txt", p1);
 

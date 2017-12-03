@@ -72,3 +72,36 @@ void Player::setPoint(int point)
 }
 
 
+void Player::addCarteToCollection(CartesEnergie CE)
+{
+    collection.setCartes(CE);
+}
+
+
+void Player::addCarteToCollection(CartesSpecial CS)
+{
+    collection.setCartes(CS);
+}
+
+void Player::addCarteToCollection(CartesCreature CC)
+{
+    collection.setCartes(CC);
+}
+
+
+void Player::displayCollection()
+{
+    int i;
+
+    cout <<" *************   Carte Energie ************* "<< endl;
+    for(i==0; i< collection.cartes_Energies.size(); i++)
+        collection.cartes_Energies[i].display();
+
+    cout <<" *************   Carte Speacial ************ "<< endl;
+    for(i==0; i< collection.cartes_Speciales.size(); i++)
+        collection.cartes_Speciales[i].display();
+
+    cout <<" *************   Carte Creature ************* "<< endl;
+    for(i==0; i< collection.cartes_Creatures.size(); i++)
+        collection.cartes_Creatures[i].display();
+}

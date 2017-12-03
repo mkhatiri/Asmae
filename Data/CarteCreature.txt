@@ -1,0 +1,4 @@
+CC1:description carte Creature 1:100:20
+CC2:description carte Creature 2:200:60
+CC3:description carte Creature 3:130:50
+CC4:description carte Creature 4:10:23

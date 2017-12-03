@@ -2,7 +2,10 @@
 
 echo "Compilation :"
 
-g++ -Wall main.cpp Cartes.cpp CartesEnergie.cpp Save.cpp Player.cpp CartesSpecial.cpp CartesCreature.cpp Utils.cpp -o executable
+g++ main.cpp Cartes.cpp CartesEnergie.cpp Save.cpp Player.cpp CartesSpecial.cpp CartesCreature.cpp Utils.cpp Collection.cpp -o executable
+
+
+#g++ -Wall main.cpp Cartes.cpp CartesEnergie.cpp Save.cpp Player.cpp CartesSpecial.cpp CartesCreature.cpp Utils.cpp -o executable
 
 
 

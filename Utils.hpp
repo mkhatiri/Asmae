@@ -28,14 +28,21 @@ class Utils
         
         //Cartes
         
-        vector <Cartes> Read_Cartes(string fileName, int type);
+        vector <CartesEnergie> Read_Cartes(string fileName, CartesEnergie CE);
+        vector <CartesCreature> Read_Cartes(string fileName, CartesCreature CC);
+        vector <CartesSpecial> Read_Cartes(string fileName, CartesSpecial CS);
+
+
         void Write_Carte(string fileName, Cartes* carte);
         
         
         //
         
         Player* lineToPlayer(string line);
-        Cartes* lineToCarte(string line, int type);
+
+        CartesEnergie* lineToCarte(string line, CartesEnergie CE);
+        CartesSpecial* lineToCarte(string line, CartesSpecial CS);
+        CartesCreature* lineToCarte(string line, CartesCreature CC );
 
         vector<string> split(string str, string sep);
     protected:
